@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:20px; }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .card { background:#fff; padding:16px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.08); margin-bottom:16px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; }
+    h1 { margin: 0 0 16px; }
+    .big { font-size: 28px; font-weight: bold; }
+    table { width:100%; border-collapse: collapse; }
+    th, td { padding:8px; border-bottom:1px solid #eee; text-align:left; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Weather Station Dashboard</h1>
+
+    <div class="card">
+      <h2>Latest Reading</h2>
+      <div class="grid">
+        <div>Temperature<br><span class="big" id="temp">--</span> °C</div>
+        <div>Humidity<br><span class="big" id="hum">--</span> %</div>
+        <div>Time<br><span class="big" id="time">--</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Temperature Chart (last 10)</h2>
+      <canvas id="tempChart"></canvas>
+    </div>
+
+    <div class="card">
+      <h2>Last 10 Readings</h2>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Temp (°C)</th><th>Hum (%)</th><th>Time</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
