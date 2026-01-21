@@ -1,0 +1,71 @@
+Weather Station Project Plan 
+1. Objective
+
+Build an ESP32-based weather station that measures:
+
+Temperature
+
+Humidity
+
+Wind Speed
+
+Wind Direction
+
+Displays the data on an SH1107 OLED and uploads it to ThingSpeak cloud.
+
+2. Hardware Components
+
+ESP32 DevKit V1
+
+DHT22 sensor (temp/humidity)
+
+Potentiometer (simulated wind speed)
+
+Rotary encoder (wind direction)
+
+SH1107 OLED display
+
+WiFi (Wokwi-GUEST)
+
+3. Wiring Summary
+Component	ESP32 Pin
+DHT22 Data	GPIO 23
+Potentiometer	ADC pin GPIO 34
+Encoder CLK	GPIO 18
+Encoder DT	GPIO 19
+OLED SDA	GPIO 21
+OLED SCL	GPIO 22
+All VCC → 3.3V, all GND → GND	
+4. System Behavior
+
+Read sensors:
+
+DHT22 → temperature & humidity
+
+Potentiometer → wind speed
+
+Encoder → wind direction (N/NE/E/SE/S/SW/W/NW)
+
+Display values on OLED.
+
+Send data to ThingSpeak every 20 seconds:
+
+field1 = temperature
+
+field2 = humidity
+
+field3 = wind speed
+
+field4 = wind direction index
+
+Show upload status in Serial Monitor.
+
+5. Deliverables
+
+Working Wokwi simulation
+
+ESP32 code
+
+ThingSpeak channel with graphs
+
+Short documentation 

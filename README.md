@@ -49,15 +49,42 @@ Telegram Alerts
 - Cloudflare Tunnel
 
 ---
+# Wokwi Simulation
+
+The ESP32 weather station can be simulated using Wokwi.
+
+Files:
+- `wokwi/diagram.json` – circuit wiring
+- `wokwi/sketch.ino` – ESP32 code
+- `wokwi/libraries.txt` – required libraries
+
+# Project Results
+
+# Web Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+# Telegram Alert
+![Telegram Alert](screenshots/telegram-alert.png)
+
+# Wokwi Simulation
+![Wokwi](screenshots/wokwi-simulation.png)
+
+# last alert
+!
+[Lastalert](screenshots/last-alart.png)
+
 
 # Project Structure
-Weather-station-project/
+Weather station project/
 ├── server.js
-├── weather.db
 ├── weather-frontend/
-│ ├── index.html
-│ └── app.js
+├── wokwi/
+├── screenshots/
+│   ├── dashboard.png
+│   ├── telegram-alert.png
+│   └── wokwi-simulation.png
 └── README.md
+
 
 
 
