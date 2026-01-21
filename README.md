@@ -69,9 +69,9 @@ Files:
 # Wokwi Simulation
 ![Wokwi](screenshots/wokwi-simulation.png)
 
-# last alert
+# last Alert
 !
-[Lastalert](screenshots/last-alart.png)
+[Last Alert](screenshots/last-reading.png)
 
 
 # Project Structure
@@ -89,3 +89,6 @@ Weather station project/
 
 
 
+
+
+[def]: screenshots/last-alart.png
