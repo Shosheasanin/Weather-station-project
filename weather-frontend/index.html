@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
     body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:20px; }
     .wrap { max-width: 900px; margin: 0 auto; }
@@ -31,7 +31,7 @@
 
     <div class="card">
       <h2>Temperature Chart (last 10)</h2>
-      <canvas id="tempChart"></canvas>
+      <div id="tempChart" style="height:400px;"></div>
     </div>
 
     <div class="card">

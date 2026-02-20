@@ -1,4 +1,4 @@
-// Enable fetch 
+const path = require("path");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
@@ -10,15 +10,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//  TELEGRAM SETTINGS 
 const TELEGRAM_BOT_TOKEN = "8570485987:AAHJoxmm79GrxO0BciTljIBOf3CUfAKd868";
 const TELEGRAM_CHAT_ID = "6195019917";
 
-// Alert limits 
-const TEMP_LIMIT = 30; // °C
-const HUM_LIMIT = 70;  // %
+const TEMP_LIMIT = 30; 
+const HUM_LIMIT = 70;  
 
-// only 1 alert per minute
 const ALERT_COOLDOWN_MS = 60 * 1000;
 let lastAlertTime = 0;
 
@@ -29,8 +26,8 @@ function canSendAlert() {
   return true;
 }
 
-// DATABASE 
-const db = new sqlite3.Database("./weather.db");
+const dbPath = path.join(__dirname, "weather.db");
+const db = new sqlite3.Database(dbPath);
 
 db.run(`
   CREATE TABLE IF NOT EXISTS readings (
@@ -45,7 +42,6 @@ function isNumber(n) {
   return typeof n === "number" && Number.isFinite(n);
 }
 
-// TELEGRAM FUNCTION 
 async function sendTelegramAlert(text) {
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
@@ -69,7 +65,7 @@ async function sendTelegramAlert(text) {
 // Test route
 app.get("/test-alert", async (req, res) => {
   try {
-    await sendTelegramAlert("✅ Test alert from your Weather Station server!");
+    await sendTelegramAlert("Test alert from your Weather Station server!");
     res.send("Telegram alert sent");
   } catch (err) {
     res.status(500).send("Failed to send Telegram alert");
@@ -97,7 +93,7 @@ app.post("/api/readings", (req, res) => {
 
         if ((tooHot || tooHumid) && canSendAlert()) {
           const msg =
-            `🚨 Weather Alert!\n` +
+            `Weather Alert!\n` +
             `Temp: ${temperature}°C (limit ${TEMP_LIMIT}°C)\n` +
             `Humidity: ${humidity}% (limit ${HUM_LIMIT}%)`;
 
