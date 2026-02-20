@@ -71,7 +71,7 @@ Files:
 
 # last Alert
 !
-[Last Alert](screenshots/last-reading.png)
+[Last Reading](screenshots/last-reading.png)
 
 
 # Project Structure
