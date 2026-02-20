@@ -15,14 +15,14 @@ const char* SERVER_URL = "https://selective-populations-array-annotation.tryclou
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200); #Start serial communication with the computer at 115200 bits per second
   dht.begin();
 
   WiFi.begin(WIFI_SSID, WIFI_PASS);
   Serial.print("Connecting to WiFi");
 
   while (WiFi.status() != WL_CONNECTED) {
-    delay(300);
+    delay(300); #Wait 0.3 seconds before checking WiFi status again
     Serial.print(".");
   }
   Serial.println("\nWiFi connected");
@@ -34,7 +34,7 @@ void loop() {
 
   if (isnan(temp) || isnan(hum)) {
     Serial.println("DHT read failed");
-    delay(5000);
+    delay(5000); #Wait 5 seconds before trying to read the sensor again
     return;
   }
 
@@ -60,5 +60,5 @@ void loop() {
     http.end();
   }
 
-  delay(20000); // send every 20 seconds
+  // delay(20000); // send every 20 seconds database gets 1 reading every 20 seconds
 }
